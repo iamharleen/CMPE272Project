@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>US University Analysis Website - Home</title>
+    <link rel="stylesheet" href="default.css" />
+</head>
+<style>
+<% include ../public/stylesheets/default.css %>
+</style>
+<body>
+    <section id="mainRight" class="clear">
+        <header>
+            <h1><home>Research Analysis of USA Universities.</home></h1>
+        </header>
+        <nav>
+            <ul>
+             <li><a href="index.ejs">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href='contact.html'>Contact</a></li>
+            </ul>
+        </nav>
+<h1><%= title %></h1>
+
+		<img src="UniversitiesImages.jpg" width="960" height="350" alt="" border="0">
+        <section class="index">
+<h5 style="line-height: 1.2em;" class="font_5"><span class="color_18">Perform Analysis according to your need!</span></h5>
+
+
+
+<div id="container" style="width:500px">
+
+            <div class="colLeft" >
+<img src="DreamofGraduate2.jpg" width="250" height="200" alt="" border="0"><br>
+<button name="button" value="OK" type="button" style="background-color:#EC3E1C">Among Universities</button>
+           
+<p style="color:white;">Universities of USA are competing with each other from different means. This analysis represents award recognition among various USA Universities. It provides you to analyze data and view from various graph structures.</p>
+            </div>
+
+            <div class="colCenter">
+<img src="usa_read_map.jpg" width="250" height="200" alt="" border="0"><br>
+<button name="button" value="OK" type="button" style="background-color:#EC3E1C">Region Wise</button>
+           
+<p style="color:white;">Universities are spanned across USA geographical area. From this analysis, one can view the analysis of Universities on the basis of their region in USA.</p>
+            </div>
+            <div class="colRight">
+<img src="ManWithBarImage.jpg" width="250" height="200" alt="" border="0"><br>
+<button name="button" value="OK" type="button" style="background-color:#EC3E1C">Over the Years</button>
+               <p style="color:white;">Award recognition is done every year among various USA Universities. These recognition may vary across span of years. This analysis of data will provide a view of year-wise analysis with different graph structures.</p>
+            </div>
+        </section>
+        <!-- end columns -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<footer>
+		        <h5 id="signature">US University Analysis Website</h5>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </footer>
+    </section>
+    <!-- end mainRight -->
+    <div id="logoTxt">
+        <h1><span></span></h1>
+        <h2><span></span></h2>
+    </div>
+
+
+<script type="text/javascript">
+	function onclickForm(formId) {
+		var form = document.getElementById(formId);
+		if (form) {
+			form.addEventListener('click', function(e) {
+				var target = e.target;
+				if (target && target.nodeName === 'A') {
+					console.log(form);
+					form.submit();
+				}
+			});
+		}
+	}
+	</script>
+	</body>
+</html>
