@@ -52,6 +52,7 @@ var output3 = '';
  * @return Nothing.
  */
 app.get('/', function(req, res, results) {
+	mongo.temp();
 	ejs.renderFile('./views/index.ejs',
 			{title : title, data : data, output1 : output1},
 			function(err, result) {
