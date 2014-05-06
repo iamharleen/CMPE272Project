@@ -1,27 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <title>US University Analysis Website - Home</title>
-    <link rel="stylesheet" href="default.css" />
+<% include header.ejs %>
 </head>
-<style>
-<% include ../public/stylesheets/default.css %>
-</style>
 <body>
+
     <section id="mainRight" class="clear">
-        <header>
-            <h1><home>Research Analysis of USA Universities.</home></h1>
-        </header>
-        <nav>
-            <ul>
-             <li><a href="index.ejs">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href='contact.html'>Contact</a></li>
-            </ul>
-        </nav>
-<h1><%= title %></h1>
+
 
 		<img src="UniversitiesImages.jpg" width="960" height="350" alt="" border="0">
         <section class="index">
@@ -33,7 +18,9 @@
 
             <div class="colLeft" >
 <img src="DreamofGraduate2.jpg" width="250" height="200" alt="" border="0"><br>
-<button name="button" value="OK" type="button" style="background-color:#EC3E1C">Among Universities</button>
+<form id="payment" action="/universityGraphs" method="post" >
+<button name="button" value="OK" type="submit" style="background-color:#EC3E1C">Among Universities</button>
+</form>
            
 <p style="color:white;">Universities of USA are competing with each other from different means. This analysis represents award recognition among various USA Universities. It provides you to analyze data and view from various graph structures.</p>
             </div>
@@ -49,24 +36,11 @@
 <button name="button" value="OK" type="button" style="background-color:#EC3E1C">Over the Years</button>
                <p style="color:white;">Award recognition is done every year among various USA Universities. These recognition may vary across span of years. This analysis of data will provide a view of year-wise analysis with different graph structures.</p>
             </div>
+            <% include footer.ejs %>
         </section>
         <!-- end columns -->
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<footer>
-		        <h5 id="signature">US University Analysis Website</h5>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </footer>
-    </section>
-    <!-- end mainRight -->
-    <div id="logoTxt">
-        <h1><span></span></h1>
-        <h2><span></span></h2>
-    </div>
+
+
 
 
 <script type="text/javascript">

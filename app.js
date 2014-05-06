@@ -4,7 +4,8 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   ,	ejs = require("ejs")
-  , mongo = require('./routes/mongodb_connect');
+  , univ = require('./routes/university')
+  ,	mongo = require('./routes/mongodb_connect');
 
 
 var app = express();
@@ -52,7 +53,6 @@ var output3 = '';
  * @return Nothing.
  */
 app.get('/', function(req, res, results) {
-	mongo.temp();
 	ejs.renderFile('./views/index.ejs',
 			{title : title, data : data, output1 : output1},
 			function(err, result) {
@@ -68,6 +68,38 @@ app.get('/', function(req, res, results) {
 	});
 
 });
+
+/**
+ * This post method renders SignUp page of Amazon to user where user can create new account
+ * 
+ * @param request, response
+ *            
+ * @return Nothing.
+ */
+app.post('/universityGraphs', function (req, res) {
+	univ.createGraph(function(err,results){
+		if(err){
+			throw err;
+		}else{
+			ejs.renderFile('./views/univGraph.ejs',
+					{title : title, data : data, output1 : results},	//sending results to user
+					function(err, result) {
+				// render on success
+				if (!err) {
+					//res.send(t);
+					console.log("value=" + results);
+					res.end(result);
+				}
+				// render or error
+				else {
+					res.end('An error occurred');
+					console.log(err);
+				}
+			});
+		}
+	},"graph");
+});
+
 
 app.get('/services', function(req, res, results) {
 	ejs.renderFile('./views/services.html',
