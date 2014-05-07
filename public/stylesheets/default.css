@@ -556,3 +556,8 @@ footer ul li a:hover {
     background-image: url(shop_button_hov.png);
 
  }
+ #chartdiv {
+	width		: 100%;
+	height		: 500px;
+	font-size	: 11px;
+}

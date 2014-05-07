@@ -34,38 +34,39 @@ db.open(function(err, p_client) {
     var results = [];
     
     
+    
     var univ = "SAN JOSE STATE UNIVERSITY RESEARCH FOUNDATION";
     collection1.findOne({"_id": univ}, function (err, user) {
         var value = user.value;
-        results.push([2007, value]);        
+        results.push(value);        
    
     collection2.findOne({"_id": univ}, function (err, user) {
     	var value = user.value;
-        results.push([2008, value]);        
+    	results.push(value);         
     
     collection3.findOne({"_id": univ}, function (err, user) {
     	var value = user.value;
-        results.push([2009, value]);        
+    	results.push(value);        
     
     collection4.findOne({"_id": univ}, function (err, user) {
     	if(user)
     	{}
     	else
     		{   		
-            results.push([2010, 0.0]);                  
+    		results.push(0);                   
     		}   
   
     collection5.findOne({"_id": univ}, function (err, user) {
     	var value = user.value;
-        results.push([2011, value]);        
+    	results.push(value);        
     
     collection6.findOne({"_id": univ}, function (err, user) {
     	var value = user.value;
-        results.push([2012, value]);        
+    	results.push(value);         
     
     collection7.findOne({"_id": univ}, function (err, user) {
     	var value = user.value;
-        results.push([2013, value]);        
+    	results.push(value);       
         callback(err,results);
     });
     });

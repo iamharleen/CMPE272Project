@@ -4,7 +4,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   ,	ejs = require("ejs")
-  , univ = require('./routes/university')
+  , univ = require('./routes/3duniversity')
   ,	mongo = require('./routes/mongodb_connect');
 
 
@@ -52,6 +52,28 @@ var output3 = '';
  *            
  * @return Nothing.
  */
+/*	to create map/reduce collection
+app.get('/', function(req, res, results) {
+	mongo.temp(function(err,results){
+		if(err){
+			throw err;
+		}else{ejs.renderFile('./views/index.ejs',
+			{title : title, data : data, output1 : output1},
+			function(err, result) {
+		// render on success
+		if (!err) {
+			res.end(result);
+		}
+		// render or error
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
+		}
+		});
+});*/
+
 app.get('/', function(req, res, results) {
 	ejs.renderFile('./views/index.ejs',
 			{title : title, data : data, output1 : output1},
@@ -66,7 +88,6 @@ app.get('/', function(req, res, results) {
 			console.log(err);
 		}
 	});
-
 });
 
 /**
@@ -81,7 +102,7 @@ app.post('/universityGraphs', function (req, res) {
 		if(err){
 			throw err;
 		}else{
-			ejs.renderFile('./views/univGraph.ejs',
+			ejs.renderFile('./views/3dunivGraph.ejs',
 					{title : title, data : data, output1 : results},	//sending results to user
 					function(err, result) {
 				// render on success

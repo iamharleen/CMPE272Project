@@ -1,0 +1,85 @@
+<html>
+  <head>
+
+<% include header.ejs %>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
+  	<script type="text/javascript">
+  //	alert("hi");
+  //  var test = <%= JSON.stringify(output1) %>;
+   //alert(<%= output1[6]%>);
+    var chart = AmCharts.makeChart("chartdiv", {
+        "theme": "none",
+        "type": "serial",
+    	"startDuration": 2,
+        "dataProvider": [{
+            "year": "2007",
+            "awards": <%= output1[0]%>,
+            "color": "#FF0F00"
+        }, {
+            "year": "2008",
+            "awards": <%= output1[1]%>,
+            "color": "#FF6600"
+        }, {
+            "year": "2009",
+            "awards": <%= output1[2]%>,
+            "color": "#FF9E01"
+        }, {
+            "year": "2010",
+            "awards": <%= output1[3]%>,
+            "color": "#FCD202"
+        }, {
+            "year": "2011",
+            "awards": <%= output1[4]%>,
+            "color": "#F8FF01"
+        }, {
+            "year": "2012",
+            "awards": <%= output1[5]%>,
+            "color": "#B0DE09"
+        }, {
+            "year": "2013",
+            "awards": <%= output1[6]%>,
+            "color": "#04D215"
+        }],
+        "valueAxes": [{
+            "position": "left",
+            "title": "Funds"
+        }],
+        "graphs": [{
+            "balloonText": "[[category]]: <b>[[value]]</b>",
+            "colorField": "color",
+            "fillAlphas": 1,
+            "lineAlpha": 0.1,
+            "type": "column",
+            "valueField": "awards"
+        }],
+        "depth3D": 20,
+    	"angle": 30,
+        "chartCursor": {
+            "categoryBalloonEnabled": false,
+            "cursorAlpha": 0,
+            "zoomable": false
+        },    
+        "categoryField": "year",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "labelRotation": 90
+        },
+    	"exportConfig":{
+    		"menuTop":"20px",
+            "menuRight":"20px",
+            "menuItems": [{
+            "icon": '/lib/3/images/export.png',
+            "format": 'png'	  
+            }]  
+        }
+    });
+    
+    </script>
+  </head>
+  <body>
+    <div id="chartdiv" style="background-color:white"></div>
+    <% include footer.ejs %>
+  </body>
+</html>
