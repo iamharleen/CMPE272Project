@@ -10,71 +10,78 @@
   //  var test = <%= JSON.stringify(output1) %>;
    //alert(<%= output1[6]%>);
     var chart = AmCharts.makeChart("chartdiv", {
-        "theme": "none",
-        "type": "serial",
-    	"startDuration": 2,
-        "dataProvider": [{
-            "year": "2007",
-            "awards": <%= output1[0]%>,
-            "color": "#FF0F00"
-        }, {
-            "year": "2008",
-            "awards": <%= output1[1]%>,
-            "color": "#FF6600"
-        }, {
-            "year": "2009",
-            "awards": <%= output1[2]%>,
-            "color": "#FF9E01"
-        }, {
-            "year": "2010",
-            "awards": <%= output1[3]%>,
-            "color": "#FCD202"
-        }, {
-            "year": "2011",
-            "awards": <%= output1[4]%>,
-            "color": "#F8FF01"
-        }, {
-            "year": "2012",
-            "awards": <%= output1[5]%>,
-            "color": "#B0DE09"
-        }, {
-            "year": "2013",
-            "awards": <%= output1[6]%>,
-            "color": "#04D215"
+    "type": "serial",
+    "theme": "none",
+    "pathToImages": "http://www.amcharts.com/lib/3/images/",
+    "dataDateFormat": "YYYY-MM-DD HH:NN",
+    "dataProvider": [{
+        "Year": "2007",
+        "Awards": <%= output1[0]%>
+    }, {
+        "Year": "2008",
+        "Awards": <%= output1[1]%>
+    }, {
+        "Year": "2009",
+        "Awards": <%= output1[2]%>
+    }, {
+        "Year": "2010",
+        "Awards": <%= output1[3]%>
+    }, {
+        "Year": "2011",
+        "Awards": <%= output1[4]%>
+    }, {
+        "Year": "2012",
+        "Awards": <%= output1[5]%>
+    }, {
+        "Year": "2013",
+        "Awards": <%= output1[6]%>
+    }],
+    "valueAxes": [{
+        "axisAlpha": 0,
+        "guides": [{
+            "fillAlpha": 0.1,
+            "fillColor": "#000000",
+            "inside": true,
+            "lineAlpha": 0,
+            "toValue": 20,
+            "value": 10
         }],
-        "valueAxes": [{
-            "position": "left",
-            "title": "Funds"
-        }],
-        "graphs": [{
-            "balloonText": "[[category]]: <b>[[value]]</b>",
-            "colorField": "color",
-            "fillAlphas": 1,
-            "lineAlpha": 0.1,
-            "type": "column",
-            "valueField": "awards"
-        }],
-        "depth3D": 20,
-    	"angle": 30,
-        "chartCursor": {
-            "categoryBalloonEnabled": false,
-            "cursorAlpha": 0,
-            "zoomable": false
-        },    
-        "categoryField": "year",
-        "categoryAxis": {
-            "gridPosition": "start",
-            "labelRotation": 90
-        },
-    	"exportConfig":{
-    		"menuTop":"20px",
-            "menuRight":"20px",
-            "menuItems": [{
-            "icon": '/lib/3/images/export.png',
-            "format": 'png'	  
-            }]  
-        }
-    });
+        "position": "left",
+        "showFirstLabel": false,
+        "showLastLabel": false,
+        "tickLength": 0
+    }],
+    "graphs": [{
+        "balloonText": "[[Year]]<br><b><span style='font-size:14px;'>Awards:[[Awards]]</span></b>",
+        "bullet": "round",
+        "dashLength": 3,
+        "valueField": "Awards"
+    }],
+    "trendLines": [{
+        "finalDate": "",
+        "finalValue": 19,
+        "initialDate": "",
+        "initialValue": 10,
+        "lineColor": "#CC0000"
+    }, {
+        "finalDate": "",
+        "finalValue": 10,
+        "initialDate": "",
+        "initialValue": 16,
+        "lineColor": "#CC0000"
+    }],
+    "chartScrollbar": {},
+    "chartCursor": {},
+    "categoryField": "Year",
+    "categoryAxis": {
+        
+        "axisAlpha": 0,
+        "gridAlpha": 0.1,
+        "inside": true,
+        "minorGridAlpha": 0.1,
+        "minorGridEnabled": true
+    }
+});
     
     </script>
   </head>

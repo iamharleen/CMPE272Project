@@ -52,7 +52,8 @@ var output3 = '';
  *            
  * @return Nothing.
  */
-/*	to create map/reduce collection
+/*
+//	to create map/reduce collection
 app.get('/', function(req, res, results) {
 	mongo.temp(function(err,results){
 		if(err){
@@ -72,8 +73,8 @@ app.get('/', function(req, res, results) {
 	});
 		}
 		});
-});*/
-
+});
+*/
 app.get('/', function(req, res, results) {
 	ejs.renderFile('./views/index.ejs',
 			{title : title, data : data, output1 : output1},
@@ -98,7 +99,7 @@ app.get('/', function(req, res, results) {
  * @return Nothing.
  */
 app.post('/universityGraphs', function (req, res) {
-	univ.createGraph(function(err,results){
+	univ.createUnivGraph(function(err,results){
 		if(err){
 			throw err;
 		}else{
@@ -118,7 +119,167 @@ app.post('/universityGraphs', function (req, res) {
 				}
 			});
 		}
-	},"graph");
+	},"CALI");
+});
+
+
+/**
+ * This post method renders graph to compare between univeristies
+ * 
+ * @param request, response
+ *            
+ * @return Nothing.
+ */
+app.post('/compareUniversityGraphs', function (req, res) {
+	univ.compareUnivGraph(function(err,results){
+		if(err){
+			throw err;
+		}else{			
+			ejs.renderFile('./views/compareUnivGraph.ejs',
+					{title : title, data : data, output1 : results},	//sending results to user
+					function(err, result) {
+				// render on success
+				if (!err) {
+					//res.send(t);
+					console.log("value=" + results);
+					res.end(result);
+				}
+				// render or error
+				else {
+					res.end('An error occurred');
+					console.log(err);
+				}
+			});
+		}
+	},"CALI", "LA");
+});
+
+
+/**
+ * This post method renders graph according to programs
+ * 
+ * @param request, response
+ *            
+ * @return Nothing.
+ */
+app.post('/programGraphs', function (req, res) {
+	univ.createProgramGraph(function(err,results){
+		if(err){
+			throw err;
+		}else{
+			ejs.renderFile('./views/graphProgram.ejs',
+					{title : title, data : data, output1 : results},	//sending results to user
+					function(err, result) {
+				// render on success
+				if (!err) {
+					//res.send(t);
+					console.log("value=" + results);
+					res.end(result);
+				}
+				// render or error
+				else {
+					res.end('An error occurred');
+					console.log(err);
+				}
+			});
+		}
+	});
+});
+
+
+/**
+ * This post method renders all university graph page to user
+ * 
+ * @param request, response
+ *            
+ * @return Nothing.
+ */
+app.post('/allUnivGraph', function (req, res) {
+	univ.allUnivGraph(function(err,results){
+		if(err){
+			throw err;
+		}else{
+			ejs.renderFile('./views/allUnivGraph.ejs',
+					{title : title, data : data, output1 : results},	//sending results to user
+					function(err, result) {
+				// render on success
+				if (!err) {
+					//res.send(t);
+					console.log("value=" + results);
+					res.end(result);
+				}
+				// render or error
+				else {
+					res.end('An error occurred');
+					console.log(err);
+				}
+			});
+		}
+	});
+});
+
+
+/**
+ * This post method renders graph by agency NSF and NASA division
+ * 
+ * @param request, response
+ *            
+ * @return Nothing.
+ */
+app.post('/agencyGraph', function (req, res) {
+	univ.allUnivGraph(function(err,results){
+		if(err){
+			throw err;
+		}else{
+			ejs.renderFile('./views/agencyGraph.ejs',
+					{title : title, data : data, output1 : results},	//sending results to user
+					function(err, result) {
+				// render on success
+				if (!err) {
+					//res.send(t);
+					console.log("value=" + results);
+					res.end(result);
+				}
+				// render or error
+				else {
+					res.end('An error occurred');
+					console.log(err);
+				}
+			});
+		}
+	});
+});
+
+
+/**
+ * This post method renders graph according to location
+ * 
+ * @param request, response
+ *            
+ * @return Nothing.
+ */
+app.post('/cityGraph', function (req, res) {
+	univ.cityGraph(function(err,results){
+		if(err){
+			throw err;
+		}else{
+			ejs.renderFile('./views/cityGraph.ejs',
+					{title : title, data : data, output1 : results},	//sending results to user
+					function(err, result) {
+				// render on success
+				if (!err) {
+					//res.send(t);
+					console.log("value=" + results);
+					res.end(result);
+				}
+				// render or error
+				else {
+					res.end('An error occurred');
+					console.log(err);
+				}
+			});
+		}
+	});
 });
 
 

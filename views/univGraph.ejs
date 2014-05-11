@@ -8,7 +8,7 @@
     <script type="text/javascript">
     
     var test = <%= JSON.stringify(output1) %>;
-   
+   //alert(test)
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
@@ -19,7 +19,7 @@
 
         var options = {
           title: 'Company Performance',
-          vAxis: {title: 'Year',  titleTextStyle: {color: 'red'}}
+          vAxis: {format : '####', title: 'Year',  titleTextStyle: {color: 'red'}}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));

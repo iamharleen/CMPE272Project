@@ -17,10 +17,11 @@ db.open(function(err, p_client) {
    //Change error handler when going into production 
    if (err) console.log(err);
     
-    var collection = new mongodb.Collection(db, 'award_2007');
+    var collection = new mongodb.Collection(db, 'award_2010');
     var total_funds;
     var total_sample_data;
     
+    	
     var mapFunction = function() {
         emit(this.Awardee, this.Funds);
     };
@@ -31,7 +32,7 @@ db.open(function(err, p_client) {
     collection.mapReduce(
             mapFunction,
             reduceFunction,
-            { query: { Awardee : "SAN JOSE STATE UNIVERSITY RESEARCH FOUNDATION"}, out: "total_funds_2007" }, function(err, docs) {
+            {  query: { Awardee: "SAN JOSE STATE UNIVERSITY FOUNDATION INC" }, out: "total_funds_2010" }, function(err, docs) {
                 //In an array, this will log all your documents you added before we tested this
             	if (err) console.log(err);
             	console.log("funds  " + total_funds);

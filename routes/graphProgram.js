@@ -24,47 +24,43 @@ db.open(function(err, p_client) {
    if (err) console.log(err);
    else
 	   {
-    var collection1 = new mongodb.Collection(db, 'total_funds_2007');
-    var collection2 = new mongodb.Collection(db, 'total_funds_2008');
-    var collection3 = new mongodb.Collection(db, 'total_funds_2009');
-    var collection4 = new mongodb.Collection(db, 'total_funds_2010');
-    var collection5 = new mongodb.Collection(db, 'total_funds_2011');
-    var collection6 = new mongodb.Collection(db, 'total_funds_2012');
-    var collection7 = new mongodb.Collection(db, 'total_funds_2013');
+    var collection1 = new mongodb.Collection(db, 'Program_2007');
+    var collection2 = new mongodb.Collection(db, 'Program_2008');
+    var collection3 = new mongodb.Collection(db, 'Program_2009');
+    var collection4 = new mongodb.Collection(db, 'Program_2010');
+    var collection5 = new mongodb.Collection(db, 'Program_2011');
+    var collection6 = new mongodb.Collection(db, 'Program_2012');
+    var collection7 = new mongodb.Collection(db, 'Program_2013');
     var results = [];
     
     
     
     var univ = "SAN JOSE STATE UNIVERSITY RESEARCH FOUNDATION";
-    collection1.findOne({"_id": univ}, function (err, user) {
+    collection1.findOne({}, function (err, user) {
         var value = user.value;
         results.push(value);        
    
-    collection2.findOne({"_id": univ}, function (err, user) {
+    collection2.findOne({}, function (err, user) {
     	var value = user.value;
     	results.push(value);         
     
-    collection3.findOne({"_id": univ}, function (err, user) {
+    collection3.findOne({}, function (err, user) {
     	var value = user.value;
     	results.push(value);        
     
-    collection4.findOne({"_id": univ}, function (err, user) {
-    	if(user)
-    	{}
-    	else
-    		{   		
-    		results.push(0);                   
-    		}   
+    collection4.findOne({}, function (err, user) {
+    	var value = user.value;
+    	results.push(value);   
   
-    collection5.findOne({"_id": univ}, function (err, user) {
+    collection5.findOne({}, function (err, user) {
     	var value = user.value;
     	results.push(value);        
     
-    collection6.findOne({"_id": univ}, function (err, user) {
+    collection6.findOne({}, function (err, user) {
     	var value = user.value;
     	results.push(value);         
     
-    collection7.findOne({"_id": univ}, function (err, user) {
+    collection7.findOne({}, function (err, user) {
     	var value = user.value;
     	results.push(value);       
         callback(err,results);

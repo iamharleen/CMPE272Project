@@ -1,0 +1,43 @@
+<html>
+  <head>
+
+<% include header.ejs %>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
+  	<script type="text/javascript">
+  //	alert("hi");
+  //  var test = <%= JSON.stringify(output1) %>;
+   //alert(<%= output1[6]%>);
+   
+
+   var chart = AmCharts.makeChart("chartdiv", {
+	    "type": "pie",
+	    "theme": "none",
+	    "dataProvider": [{
+	        "Agency": "NASA",
+	        "Awards": <%= output1[0] + output1[1] + output1[2] + output1[3] + output1[4] + output1[5] + output1[6]%>
+	    }, {
+	        "Agency": "NSF",
+	        "Awards":  <%= output1[7] + output1[8] + output1[9] + output1[10] + output1[11] + output1[12] + output1[13]%>
+	    }],
+	    "valueField": "Awards",
+	    "titleField": "Agency",
+	    "outlineAlpha": 0.4,
+	    "depth3D": 15,
+	    "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[Awards]]</b> ([[percents]]%)</span>",
+	    "angle": 30,
+	    "exportConfig":{	
+	      menuItems: [{
+	      icon: '/lib/3/images/export.png',
+	      format: 'png'	  
+	      }]  
+		}
+	});    
+    </script>
+  </head>
+  <body>
+    <div id="chartdiv" style="background-color:white"></div>
+    <% include footer.ejs %>
+  </body>
+</html>
