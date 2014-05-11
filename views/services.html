@@ -1,45 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	
-    <title>US University Analysis Website</title>
-    <link rel="stylesheet" href="default.css" />
+<title>Point.co | Services</title>
+<meta charset="utf-8">
+<% include head.ejs %>
 </head>
-<body>
-    <section id="mainRight" class="clear">
-        <header>
-            <h1><home>Services we provide you</home></h1>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html" class="selected">Services</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+<body id="page3">
 
-<h2><p>We provide solutions with following Graphs which represent different views of data analysis performed across universities.</h2>
-		<img src="services_1.png" width="960" height="600" alt="" title="" border="0" />
-
-
-
-
-
-        <footer>
-		        <h5 id="signature">US University Analysis Website</h5>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </footer>
+<!-- header -->
+<div class="bg">
+  <div class="main">
+    <header>
+      <% include header.ejs %>
+    </header>
+    <!-- content -->
+    <section id="content">
+      <div class="padding">
+        <div class="indent">
+          <h2>Our Services</h2>
+          <h4>We provide solutions with following Graphs which represent different views of data analysis performed across universities.</h4>
+          <div class="wrapper indent-bot">
+          <div class="wrapper">
+                <figure class="img-indent3"><img src="services_1.png"  width="960" height="600" alt="" /></figure>
+                <div class="extra-wrap">
+                  </div>
+    
+            </div>
+          </div>
+        </div>
+        
+        <% include midder.ejs %>
+        
+      </div>
     </section>
-    <!-- end mainRight -->
-    <div id="logoTxt">
-        <h1><span></span></h1>
-        <h2><span></span></h2>
-    </div>
+  </div>
+  <!-- footer -->
+  <% include footer.ejs %>
+</div>
+<script type="text/javascript">Cufon.now();</script>
 </body>
 </html>

@@ -1,28 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-    <title>US University Analysis Website - Home</title>
-    <link rel="stylesheet" href="default.css" />
-</head>
-<style>
-<% include ../public/stylesheets/default.css %>
-</style>
-<body>
-    <section id="mainRight" class="clear">
-        <header>
-            <h1><home>Research Analysis of USA Universities.</home></h1>
-        </header>
+<!-- header -->
+<header>
+      <div class="row-1">
+        <h1> <a class="logo" href="">California University Analysis</a> <strong class="slog">The most creative ideas</strong> </h1>
+        <form id="search-form" action="#">
+          <fieldset>
+            <div class="search-form">
+              <input id="searchInput" type="text" name="search" value="Type Keyword Here" onBlur="if(this.value=='') this.value='Type Keyword Here'" onFocus="this.style.color='#9d9d9d'; if(this.value =='Type Keyword Here' ) this.value='';" />
+              <input id="searchButton" type="submit" value="" class="btnSubmit">
+             </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="row-2">
         <nav>
-            <ul>
-             
-             <li><a class="lnk" href="/" >Home</a></li>
-             <li><a class="lnk" href="/services" >Services</a></li>
-             <li><a class="lnk" href="/about" >About</a></li>
-             <li><a class="lnk" href="/contact" >Contact</a></li>
-             
-            </ul>
+          <ul class="menu">
+            <li><a class="home active" href="/">Home Page</a></li>
+            <li><a class="news active" href="/news">Our News</a></li>
+            <li><a class="services active" href="/services">Our Services</a></li>
+            <li><a class="about active" href="/about">About Us</a></li>
+            <li class="last-item"><a class="contact active" href="/contacts">Contact Us</a></li>
+          </ul>
         </nav>
-
-	</body>
-</html>
+      </div>
+      <div class="row-3">
+        <div class="slider-wrapper">
+          <div class="slider">
+            <ul class="items">
+              <li><img src="UniversitiesImages.jpg" alt=""></li>
+              <li><img src="GraduateWithUniv.jpg" alt=""></li>
+              <li><img src="Graduate_caps.jpg" alt=""></li>
+            </ul>
+            <a class="prev" href="#">prev</a> <a class="next" href="#">prev</a> </div>
+        </div>
+      </div>
+</header>
+<script>
+	var searchInput = document.getElementById('searchInput'),
+		searchForm = document.getElementById('search-form'),
+		searchQuery;
+	if(searchInput && searchForm) {
+		searchForm.addEventListener('submit', function(e) {
+			e.preventDefault();
+			searchQuery = searchInput.value;
+			if (searchQuery && searchQuery !== 'Type Keyword Here') {
+				window.location = 'https://www.google.com/#q=' + searchQuery;
+			}
+			else {
+				searchInput.style.color = 'red';
+			}
+		});
+	}
+</script>

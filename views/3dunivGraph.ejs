@@ -1,7 +1,21 @@
 <html>
   <head>
+<% include head.ejs %>
 
-<% include header.ejs %>
+	<style>
+		#chartdiv {
+			width:1056px;
+			margin:auto;
+			height:347px;
+			background:white
+		}
+		#chartdiv img {
+			position: absolute;
+			top: 150px;
+			left: 265px;
+		}
+	</style>
+	
 <script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
 <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
 <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
@@ -86,7 +100,9 @@
     </script>
   </head>
   <body>
-    <div id="chartdiv" style="background-color:white"></div>
+    <% include header.ejs %>
+    <div id="chartdiv" ><img src="loading.gif" /></div>
+    <% include midder.ejs %> 
     <% include footer.ejs %>
   </body>
 </html>

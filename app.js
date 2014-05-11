@@ -30,7 +30,8 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'images')));
-app.use(express.static(path.join(__dirname, 'public/stylesheets')));
+app.use(express.static(path.join(__dirname, 'js')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'views')));
 
 // development only
@@ -91,14 +92,56 @@ app.get('/', function(req, res, results) {
 	});
 });
 
+
+app.get('/news', function(req, res, results) {
+	ejs.renderFile('./views/news.html',
+			{title : title, data : data, output1 : output1},
+			function(err, result) {
+		// render on success
+		if (!err) {
+			res.end(result);
+		}
+		// render or error
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
+});
+
 /**
- * This post method renders SignUp page of Amazon to user where user can create new account
+ * This get method renders university selection page where user can select 2 universities
+ * 
+ * @param request, response
+ *            
+ * @return Nothing.
+ */
+app.get('/compareUniv', function(req, res, results) {
+	ejs.renderFile('./views/Comparison.ejs',
+			{title : title, data : data, output1 : output1},
+			function(err, result) {
+		// render on success
+		if (!err) {
+			res.end(result);
+		}
+		// render or error
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
+});
+
+/**
+ * This post method renders all university graph over the years
  * 
  * @param request, response
  *            
  * @return Nothing.
  */
 app.post('/universityGraphs', function (req, res) {
+	var name = req.param('university');
+	//var univ1 = name[0];
 	univ.createUnivGraph(function(err,results){
 		if(err){
 			throw err;
@@ -119,7 +162,31 @@ app.post('/universityGraphs', function (req, res) {
 				}
 			});
 		}
-	},"CALI");
+	},name);
+});
+
+/**
+ * This post method renders all university graph over the years
+ * 
+ * @param request, response
+ *            
+ * @return Nothing.
+ */
+app.get('/singleUniversity', function (req, res) {
+			ejs.renderFile('./views/singleUniversity.ejs',
+					{title : title, data : data},	//sending results to user
+					function(err, result) {
+				// render on success
+				if (!err) {
+					//res.send(t);
+					res.end(result);
+				}
+				// render or error
+				else {
+					res.end('An error occurred');
+					console.log(err);
+				}
+			});
 });
 
 
@@ -131,12 +198,18 @@ app.post('/universityGraphs', function (req, res) {
  * @return Nothing.
  */
 app.post('/compareUniversityGraphs', function (req, res) {
+	var name = req.param('university');
+	var univ1 = name[0];
+	var univ2 = name[1];
 	univ.compareUnivGraph(function(err,results){
 		if(err){
 			throw err;
-		}else{			
+		}else{	
+			var temp = [];
+			temp.push(results[14]);   
+			temp.push(results[15]);   
 			ejs.renderFile('./views/compareUnivGraph.ejs',
-					{title : title, data : data, output1 : results},	//sending results to user
+					{title : title, data : data, output1 : results, output2 : temp},	//sending results to user
 					function(err, result) {
 				// render on success
 				if (!err) {
@@ -151,7 +224,7 @@ app.post('/compareUniversityGraphs', function (req, res) {
 				}
 			});
 		}
-	},"CALI", "LA");
+	},univ1, univ2);
 });
 
 
@@ -162,7 +235,7 @@ app.post('/compareUniversityGraphs', function (req, res) {
  *            
  * @return Nothing.
  */
-app.post('/programGraphs', function (req, res) {
+app.get('/programGraphs', function (req, res) {
 	univ.createProgramGraph(function(err,results){
 		if(err){
 			throw err;
@@ -194,7 +267,7 @@ app.post('/programGraphs', function (req, res) {
  *            
  * @return Nothing.
  */
-app.post('/allUnivGraph', function (req, res) {
+app.get('/allUnivGraph', function (req, res) {
 	univ.allUnivGraph(function(err,results){
 		if(err){
 			throw err;
@@ -220,13 +293,13 @@ app.post('/allUnivGraph', function (req, res) {
 
 
 /**
- * This post method renders graph by agency NSF and NASA division
+ * This get method renders graph by agency NSF and NASA division
  * 
  * @param request, response
  *            
  * @return Nothing.
  */
-app.post('/agencyGraph', function (req, res) {
+app.get('/agencyGraph', function (req, res) {
 	univ.allUnivGraph(function(err,results){
 		if(err){
 			throw err;
@@ -252,13 +325,13 @@ app.post('/agencyGraph', function (req, res) {
 
 
 /**
- * This post method renders graph according to location
+ * This get method renders graph according to location
  * 
  * @param request, response
  *            
  * @return Nothing.
  */
-app.post('/cityGraph', function (req, res) {
+app.get('/cityGraph', function (req, res) {
 	univ.cityGraph(function(err,results){
 		if(err){
 			throw err;
@@ -317,8 +390,8 @@ app.get('/about', function(req, res, results) {
 
 });
 
-app.get('/contact', function(req, res, results) {
-	ejs.renderFile('./views/contact.html',
+app.get('/contacts', function(req, res, results) {
+	ejs.renderFile('./views/contacts.html',
 			{title : title, data : data, output1 : output1},
 			function(err, result) {
 		// render on success

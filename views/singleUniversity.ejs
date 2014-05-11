@@ -1,0 +1,100 @@
+<html>
+	<head>
+		<title>California University Analysis | About Us</title>
+		<meta charset="utf-8">
+		
+		<% include head.ejs %>
+		
+		<script src="http://yui.yahooapis.com/3.16.0/build/yui/yui-min.js"></script>
+		<script>
+		    YUI().use('node', 'event', function (Y) {
+		        var frmSelectUniversity = Y.one('#frmSelectUniversity'),
+		        	btnSubmit,
+		            chkboxes;
+		        if (frmSelectUniversity) {
+		        	btnSubmit = frmSelectUniversity.one('.btnSubmit');
+		        	radio = frmSelectUniversity.all('input[type="radio"]');
+		            if (btnSubmit) {
+		            	btnSubmit.on('click', function(e) {
+		            		e.preventDefault();
+			            	var count = 0;
+			            	radio.each(function (node) {
+			                    if (node.get('checked')) {
+			                        count++;
+			                    }
+			                });
+			            	if (count <= 0) {
+			            		alert('Please select a University');
+			            		return false;
+			            	}
+			            	else {
+			            		frmSelectUniversity.submit();
+			            	}
+		            	});
+		            }
+		        }
+		    });
+		</script>
+	</head>
+	<body id="page4">
+		<!-- header -->
+		<div class="bg">
+		  <div class="main">
+		    <% include header.ejs %>
+		    <!-- content -->
+		    <section id="content">
+		      <div class="padding">
+		        <div class="wrapper margin-bot">
+		          <div class="col-3">
+		            <div class="indent">
+		              <h2>Comparison Among 2 University</h2>
+		              <p class="color-4">Universities of USA are competing with each other from different means. This analysis represents award recognition among various USA Universities. It provides you to analyze data and view from various graph structures.</p>
+		              
+						<form id="frmSelectUniversity" action="/universityGraphs" method="post">
+						    <div>
+						        <label><input type="radio" name="university" value="total_funds">SAN JOSE STATE UNIVERSITY FOUNDATION INC</label>
+							</div>
+						    <div>
+						        <label><input type="radio" name="university" value="CALI">CALIFORNIA INSTITUTE OF TECHNOLOGY</label>
+							</div>
+						    <div>
+						        <label><input type="radio" name="university" value="LA">UNIVERSITY OF CALIFORNIA LOS ANGELES</label>
+							</div>
+						    <div>
+						        <label><input type="radio" name="university" value="DIEGO">SAN DIEGO STATE UNIVERSITY FOUNDATION</label>
+							</div>
+						    <div>
+						        <label><input type="radio" name="university" value="SOUTH">UNIVERSITY OF SOUTHERN CALIFORNIA</label>
+							</div>
+						    <div>
+						        <label><input type="radio" name="university" value="CRUZ">UNIVERSITY OF CALIFORNIA, SANTA CRUZ</label>
+							</div>
+						    <div>
+						        <label><input type="radio" name="university" value="SFSU">SAN FRANCISCO STATE UNIVERSITY</label>
+							</div>
+						    <div>
+						        <label><input type="radio" name="university" value="BARBARA">UNIVERSITY OF CALIFORNIA, SANTA BARBARA</label>
+							</div>
+						    <div>
+						        <label><input type="radio" name="university" value="STANFORD">THE LELAND STANFORD JUNIOR UNIVERSITY</label>
+							</div>
+						    <div>
+						       <label> <input type="radio" name="university" value="IRVINE">UNIVERSITY OF CALIFORNIA, IRVINE</label>
+							</div>
+							<input class="btnSubmit" type="submit" value="Submit" style="margin: 15px 0 0 100px;">
+						</form>
+		              </div>
+		              <% include midder.ejs %> 
+		              </div>
+		              </div>
+						</section>
+		                    </div>
+		                    </div>
+		</div>
+		    <!-- footer -->
+		    <% include footer.ejs %> 
+		  </div>
+		</div>
+		<script type="text/javascript">Cufon.now();</script>
+	</body>
+</html>

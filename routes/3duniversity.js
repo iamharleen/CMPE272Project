@@ -116,7 +116,10 @@ db.open(function(err, p_client) {
 	   UNIVERSITY OF CALIFORNIA, IRVINE : IRVINE
 	   UNIVERSITY OF CALIFORNIA, SANTA CRUZ : CRUZ
 	   UNIVERSITY OF SOUTHERN CALIFORNIA : SOUTH*/
-	     
+	   
+	   
+	   
+	   
 	   var collName1 = univ1 + "_2007";		
 	   var collName2 = univ1 + "_2008";		
 	   var collName3 = univ1 + "_2009";		
@@ -150,6 +153,49 @@ db.open(function(err, p_client) {
     var collection14 = new mongodb.Collection(db, collName14);
     var results = [];
     
+    if(univ1 === "total_funds")
+		   univ1 = "SAN JOSE STATE UNIVERSITY FOUNDATION";
+	   else if(univ1 === "CALI")
+		   univ1 = "CALIFORNIA INSTITUTE OF TECHNOLOGY";
+	   else if(univ1 === "LA")
+		   univ1 = "UNIVERSITY OF CALIFORNIA LOS ANGELES";
+	   else if(univ1 === "DIEGO")
+		   univ1 = "SAN DIEGO STATE UNIVERSITY FOUNDATION";
+	   else if(univ1 === "SFSU")
+		   univ1 = "SAN FRANCISCO STATE UNIVERSITY";
+	   else if(univ1 === "BARBARA")
+		   univ1 = "UNIVERSITY OF CALIFORNIA, SANTA BARBARAN";
+	   else if(univ1 === "STANFORD")
+		   univ1 = "THE LELAND STANFORD JUNIOR UNIVERSITY";
+	   else if(univ1 === "IRVINE")
+		   univ1 = "UNIVERSITY OF CALIFORNIA, IRVINE";
+	   else if(univ1 === "CRUZ")
+		   univ1 = "UNIVERSITY OF CALIFORNIA, SANTA CRUZ";
+	   else if(univ1 === "SOUTH")
+		   univ1 = "UNIVERSITY OF SOUTHERN CALIFORNIA";
+	   
+	   if(univ2 === "total_funds")
+		   univ2 = "SAN JOSE STATE UNIVERSITY FOUNDATION";
+	   else if(univ2 === "CALI")
+		   univ2 = "CALIFORNIA INSTITUTE OF TECHNOLOGY";
+	   else if(univ2 === "LA")
+		   univ2 = "UNIVERSITY OF CALIFORNIA LOS ANGELES";
+	   else if(univ2 === "DIEGO")
+		   univ2 = "SAN DIEGO STATE UNIVERSITY FOUNDATION";
+	   else if(univ2 === "SFSU")
+		   univ2 = "SAN FRANCISCO STATE UNIVERSITY";
+	   else if(univ2 === "BARBARA")
+		   univ2 = "UNIVERSITY OF CALIFORNIA, SANTA BARBARAN";
+	   else if(univ2 === "STANFORD")
+		   univ2 = "THE LELAND STANFORD JUNIOR UNIVERSITY";
+	   else if(univ2 === "IRVINE")
+		   univ2 = "UNIVERSITY OF CALIFORNIA, IRVINE";
+	   else if(univ2 === "CRUZ")
+		   univ2 = "UNIVERSITY OF CALIFORNIA, SANTA CRUZ";
+	   else if(univ2 === "SOUTH")
+		   univ2 = "UNIVERSITY OF SOUTHERN CALIFORNIA";
+	   
+	   
     collection1.findOne({}, function (err, user) {
         var value = user.value;
         results.push(value);        
@@ -206,7 +252,12 @@ db.open(function(err, p_client) {
         
         collection14.findOne({}, function (err, user) {
         	var value = user.value;
-        	results.push(value);       
+        	results.push(value);
+        	
+        	//sending univ names
+        	results.push(univ1);
+        	results.push(univ2);
+        	
             callback(err,results);
             
         db.close();

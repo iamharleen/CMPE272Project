@@ -1,11 +1,24 @@
 <html>
+
   <head>
+	<% include head.ejs %>
 
-<% include header.ejs %>
-
+	<style>
+		#map_canvas {
+			width:556px;
+			margin:auto;
+			height:347px;
+		}
+		#map_canvas img {
+			position: absolute;
+			top: 150px;
+			left: 265px;
+		}
+	
+	</style>
   	
     <script type='text/javascript' src='https://www.google.com/jsapi'></script>
-  <script type='text/javascript'>
+  	<script type='text/javascript'>
   //var test = <%= JSON.stringify(output1) %>;
 
    google.load('visualization', '1', {'packages': ['geomap']});
@@ -44,8 +57,9 @@
     </script>
   </head>
   <body>
-  <div id='map_canvas' style="width: 7780px; height: 7720px;"></div>
-    
+  <% include header.ejs %>
+  <div id='map_canvas'><img src="loading.gif" /></div>
+   <% include midder.ejs %> 
     <% include footer.ejs %>
   </body>
 </html>
