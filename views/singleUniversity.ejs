@@ -5,6 +5,12 @@
 		
 		<% include head.ejs %>
 		
+		<style>
+		#content h3 strong {
+		margin: 6px 0 0 0;
+		}
+		</style>
+		
 		<script src="http://yui.yahooapis.com/3.16.0/build/yui/yui-min.js"></script>
 		<script>
 		    YUI().use('node', 'event', function (Y) {
@@ -84,16 +90,17 @@
 							<input class="btnSubmit" type="submit" value="Submit" style="margin: 15px 0 0 100px;">
 						</form>
 		              </div>
+		              </div>
+		              </div>
+		              </div>
 		              <% include midder.ejs %> 
-		              </div>
-		              </div>
 						</section>
 		                    </div>
-		                    </div>
-		</div>
+		                    
+		
 		    <!-- footer -->
 		    <% include footer.ejs %> 
-		  </div>
+		  
 		</div>
 		<script type="text/javascript">Cufon.now();</script>
 	</body>
