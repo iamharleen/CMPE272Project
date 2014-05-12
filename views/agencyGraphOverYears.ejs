@@ -46,6 +46,9 @@
 	        "NASA": <%= output1[6]%>,
 	        "NSF": <%= output1[13]%>
 	    }],
+	    "valueAxes": [{
+	    	"title": "Funds in Dollars"
+	    }],
 	    "startDuration": 1,
 	    "graphs": [{
 	        "balloonText": "Awards given in [[category]] by NASA: <b>[[value]]</b>",
@@ -87,7 +90,7 @@
 		<div class="main">
 			 <% include header.ejs %>
 			 <section id="content">
-		    	<p class="chartdesc" align="center">Comparison between NASA and NSF from year 2007 to 2013</p>
+		    	<p class="chartdesc" align="center">Comparison between Funding approved by NASA and NSF from year 2007 to 2013</p>
 		    	<div id="chartdiv" ><img src="loading.gif" /></div>
 		    	<% include midder.ejs %> 
 		    </section>

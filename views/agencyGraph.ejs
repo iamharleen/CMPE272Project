@@ -10,9 +10,6 @@
 <script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
 <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
   	<script type="text/javascript">
-  //	alert("hi");
-  //  var test = <%= JSON.stringify(output1) %>;
-   //alert(<%= output1[6]%>);
    
 
    var chart = AmCharts.makeChart("chartdiv", {
@@ -46,6 +43,8 @@
 		<div class="main">
 			 <% include header.ejs %>
 			 <section id="content">
+			 <p class="chartdesc" align="center">Share of Funds awarded by Organization in 2013.</p>
+		    	
 		    	<p class="chartdesc" align="center">Good news!! NSF funded 88.33% of the grants available in year 2013. So Science is still the field encouraged among universities.</p>
 		    	<div id="chartdiv" ><img src="loading.gif" /></div>
 		    	<% include midder.ejs %> 
