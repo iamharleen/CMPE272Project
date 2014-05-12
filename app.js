@@ -92,9 +92,24 @@ app.get('/', function(req, res, results) {
 	});
 });
 
+app.get('/mapsearch', function(req, res, results) {
+	ejs.renderFile('./views/a.html',
+			{title : title, data : data, output1 : output1},
+			function(err, result) {
+		// render on success
+		if (!err) {
+			res.end(result);
+		}
+		// render or error
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
+});
 
-app.get('/news', function(req, res, results) {
-	ejs.renderFile('./views/news.html',
+app.get('/concept', function(req, res, results) {
+	ejs.renderFile('./views/concept.html',
 			{title : title, data : data, output1 : output1},
 			function(err, result) {
 		// render on success
@@ -152,7 +167,7 @@ app.post('/universityGraphs', function (req, res) {
 				// render on success
 				if (!err) {
 					//res.send(t);
-					console.log("value=" + results);
+					//console.log("value=" + results);
 					res.end(result);
 				}
 				// render or error
@@ -166,7 +181,7 @@ app.post('/universityGraphs', function (req, res) {
 });
 
 /**
- * This post method renders all university graph over the years
+ * This get method renders all university graph over the years
  * 
  * @param request, response
  *            
@@ -214,7 +229,7 @@ app.post('/compareUniversityGraphs', function (req, res) {
 				// render on success
 				if (!err) {
 					//res.send(t);
-					console.log("value=" + results);
+					//console.log("value=" + results);
 					res.end(result);
 				}
 				// render or error
@@ -229,7 +244,7 @@ app.post('/compareUniversityGraphs', function (req, res) {
 
 
 /**
- * This post method renders graph according to programs
+ * This get method renders graph according to programs
  * 
  * @param request, response
  *            
@@ -261,7 +276,7 @@ app.get('/programGraphs', function (req, res) {
 
 
 /**
- * This post method renders all university graph page to user
+ * This get method renders all university graph page to user
  * 
  * @param request, response
  *            
@@ -323,6 +338,37 @@ app.get('/agencyGraph', function (req, res) {
 	});
 });
 
+
+/**
+ * This get method renders graph by agency NSF and NASA division
+ * 
+ * @param request, response
+ *            
+ * @return Nothing.
+ */
+app.get('/agencyGraphOverYears', function (req, res) {
+	univ.allUnivGraph(function(err,results){
+		if(err){
+			throw err;
+		}else{
+			ejs.renderFile('./views/agencyGraphOverYears.ejs',
+					{title : title, data : data, output1 : results},	//sending results to user
+					function(err, result) {
+				// render on success
+				if (!err) {
+					//res.send(t);
+					console.log("value=" + results);
+					res.end(result);
+				}
+				// render or error
+				else {
+					res.end('An error occurred');
+					console.log(err);
+				}
+			});
+		}
+	});
+});
 
 /**
  * This get method renders graph according to location

@@ -1,14 +1,17 @@
 <html>
   <head>
 
-<% include header.ejs %>
+<% include head.ejs %>
+
+	<style>
+		<% include ../public/stylesheets/chart.css %>
+	</style>
+
+
 <script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
 <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
 <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
   	<script type="text/javascript">
-  //	alert("hi");
-  //  var test = <%= JSON.stringify(output1) %>;
-  // alert(<%= output1[6]%>);
    
   
    var chart = AmCharts.makeChart("chartdiv", {
@@ -78,8 +81,19 @@
     
     </script>
   </head>
-  <body>
-    <div id="chartdiv" style="background-color:white"></div>
-    <% include footer.ejs %>
+  <body id="page3" class="pageChart">
+	<!-- header -->
+	<div class="bg">
+		<div class="main">
+			 <% include header.ejs %>
+			 <section id="content">
+		    	<p class="chartdesc" align="center">Comparison between NASA and NSF from year 2007 to 2013</p>
+		    	<div id="chartdiv" ><img src="loading.gif" /></div>
+		    	<% include midder.ejs %> 
+		    </section>
+		</div>
+		<% include footer.ejs %>
+	</div>
   </body>
+
 </html>

@@ -4,16 +4,18 @@
 	<% include head.ejs %>
 
 	<style>
-		#map_canvas {
-			width:556px;
-			margin:auto;
-			height:347px;
-		}
-		#map_canvas img {
+	<% include ../public/stylesheets/chart.css %>
+	
+		#chartdiv img{
 			position: absolute;
-			top: 150px;
-			left: 265px;
+			top: 200px;
+			left: 250px;
+
 		}
+		#chartdiv {
+			width:556px;
+		}
+		
 	
 	</style>
   	
@@ -49,17 +51,27 @@
       options['colors'] = [0xFF8747, 0xFFB581, 0xc06000]; //orange colors
       options['dataMode'] = 'markers';
 
-      var container = document.getElementById('map_canvas');
+      var container = document.getElementById('chartdiv');
       var geomap = new google.visualization.GeoMap(container);
       geomap.draw(data, options);
     };
 
     </script>
   </head>
-  <body>
-  <% include header.ejs %>
-  <div id='map_canvas'><img src="loading.gif" /></div>
-   <% include midder.ejs %> 
-    <% include footer.ejs %>
+  
+  <body id="page3" class="pageChart">
+	<!-- header -->
+	<div class="bg">
+		<div class="main">
+			 <% include header.ejs %>
+			 <section id="content">
+		    	<p class="chartdesc" align="center">Analysis graph according to Cities of California University</p>
+		    	<div id="chartdiv" ><img src="loading.gif" /></div>
+		    	<% include midder.ejs %> 
+		    </section>
+		</div>
+		<% include footer.ejs %>
+	</div>
   </body>
+
 </html>

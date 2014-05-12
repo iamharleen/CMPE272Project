@@ -54,6 +54,27 @@ db.open(function(err, p_client) {
     var collection7 = new mongodb.Collection(db, collName7);
     var results = [];
     
+    if(univ === "total_funds")
+		   univ = "SAN JOSE STATE UNIVERSITY FOUNDATION";
+	   else if(univ === "CALI")
+		   univ = "CALIFORNIA INSTITUTE OF TECHNOLOGY";
+	   else if(univ === "LA")
+		   univ = "UNIVERSITY OF CALIFORNIA LOS ANGELES";
+	   else if(univ === "DIEGO")
+		   univ = "SAN DIEGO STATE UNIVERSITY FOUNDATION";
+	   else if(univ === "SFSU")
+		   univ = "SAN FRANCISCO STATE UNIVERSITY";
+	   else if(univ === "BARBARA")
+		   univ = "UNIVERSITY OF CALIFORNIA, SANTA BARBARAN";
+	   else if(univ === "STANFORD")
+		   univ = "THE LELAND STANFORD JUNIOR UNIVERSITY";
+	   else if(univ === "IRVINE")
+		   univ = "UNIVERSITY OF CALIFORNIA, IRVINE";
+	   else if(univ === "CRUZ")
+		   univ = "UNIVERSITY OF CALIFORNIA, SANTA CRUZ";
+	   else if(univ === "SOUTH")
+		   univ = "UNIVERSITY OF SOUTHERN CALIFORNIA";
+    
     collection1.findOne({}, function (err, user) {
         var value = user.value;
         results.push(value);        
@@ -80,7 +101,9 @@ db.open(function(err, p_client) {
     
     collection7.findOne({}, function (err, user) {
     	var value = user.value;
-    	results.push(value);       
+    	results.push(value); 
+    	
+    	results.push(univ);
         callback(err,results);
         
         db.close();

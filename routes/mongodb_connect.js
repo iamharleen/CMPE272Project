@@ -32,7 +32,7 @@ db.open(function(err, p_client) {
     collection.mapReduce(
             mapFunction,
             reduceFunction,
-            {  query: { Awardee: "SAN JOSE STATE UNIVERSITY FOUNDATION INC" }, out: "total_funds_2010" }, function(err, docs) {
+            {  query: { Awardee: "SAN DIEGO STATE UNIVERSITY FOUNDATION" }, out: "DIEGO_2010" }, function(err, docs) {
                 //In an array, this will log all your documents you added before we tested this
             	if (err) console.log(err);
             	console.log("funds  " + total_funds);
