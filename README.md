@@ -29,6 +29,7 @@ npm install mongodb
 ## Developed
 --------------
 Following directory information:
+
 * [app.js] - Server for the website
 * [/routes/*] - Server side js files to fetch data from mongo
 * [/images/*] - Client side images
@@ -39,6 +40,8 @@ Following directory information:
 
 ## Technology Used
 --------------
+Following technologies have been used in order to develop this project
+
 * [Nodejs] - Rest API for server and client code
 * [MongoHQ] - Database is hosted here.
 * [MongoHQ MapReduce] - This functionality has been used to create required collections
