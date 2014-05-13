@@ -37,7 +37,7 @@ Following directory information:
 * [/views/*] - Client side express java script files 
 * [/js/*] - jQuery files to render images on Client
 
-
+* [django] - The Web framework for perfectionists with deadlines.
 ## Technology Used
 --------------
 Following technologies have been used in order to develop this project
