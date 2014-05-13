@@ -8,13 +8,12 @@
  - Title: Fund Analysis for Universities in California
  - Website: http://caluniversityanalysis.herokuapp.com/
 
-## Requirements
+##Requirements
 --------------
 To run this project from local machine, JDK 1.7 should be installed on it.
 node modules required: ejs, express, mongodb
 
-
-### Basic Configuration
+##Basic Configuration
 --------------
 You need to have node v0.8.19 installed
 To install node modules, following command need to be used:
@@ -26,7 +25,7 @@ npm install mongodb
 ```
 
 
- Developed
+##Developed
 --------------
 Following directory information:
 
@@ -37,7 +36,7 @@ Following directory information:
 * [/views/*] - Client side express java script files 
 * [/js/*] - jQuery files to render images on Client
 
- Technology Used
+##Technology Used
 --------------
 Following technologies have been used in order to develop this project
 
@@ -47,13 +46,12 @@ Following technologies have been used in order to develop this project
 * Codeship - To out code from github on cloud
 * Heroku - To create a live application by using codeship hosted code
 
- Tools being used
+##Tools being used
 --------------
 * CoffeCup software and Bootstrap
 * jQuery for UI
 * amCharts API to create Analyze charts
 * GoogleMap API to create Geographical charts
-
 
 ##Team Member
 --------------
