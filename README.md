@@ -26,7 +26,7 @@ npm install mongodb
 ```
 
 
-## Developed
+ Developed
 --------------
 Following directory information:
 
@@ -37,8 +37,7 @@ Following directory information:
 * [/views/*] - Client side express java script files 
 * [/js/*] - jQuery files to render images on Client
 
-* [django] - The Web framework for perfectionists with deadlines.
-## Technology Used
+ Technology Used
 --------------
 Following technologies have been used in order to develop this project
 
@@ -48,7 +47,7 @@ Following technologies have been used in order to develop this project
 * Codeship - To out code from github on cloud
 * Heroku - To create a live application by using codeship hosted code
 
-## Tools being used
+ Tools being used
 --------------
 * CoffeCup software and Bootstrap
 * jQuery for UI
