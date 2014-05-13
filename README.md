@@ -42,11 +42,11 @@ Following directory information:
 --------------
 Following technologies have been used in order to develop this project
 
-* [Nodejs] - Rest API for server and client code
-* [MongoHQ] - Database is hosted here.
-* [MongoHQ MapReduce] - This functionality has been used to create required collections
-* [Codeship] - To out code from github on cloud
-* [Heroku] - To create a live application by using codeship hosted code
+* Nodejs - Rest API for server and client code
+* MongoHQ - Database is hosted here.
+* MongoHQ MapReduce - This functionality has been used to create required collections
+* Codeship - To out code from github on cloud
+* Heroku - To create a live application by using codeship hosted code
 
 ## Tools being used
 --------------
